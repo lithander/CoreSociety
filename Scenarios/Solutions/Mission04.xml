@@ -1,0 +1,123 @@
+﻿<scenario>
+  <budget>100000</budget>
+	<deck>
+	  <listing color="401020">
+DSC !F
+NXT 0
+	  </listing>
+	  <listing color="101040">
+QSE _a
+IFG _a !F0
+NXT decrease_score
+ISE !F
+NXT 0
+
+decrease_score:
+DSC !F
+NXT 0
+
+_a:
+0
+	  </listing>
+	  <listing color="104010">
+evaluate:
+TGT !0
+QSE _a
+IFS _a
+NXT drill
+
+RDW _a 0
+IFE _a !A101
+NXT friend_ahead
+
+prepare_copy:
+SIP 85
+SET _a !0
+copy:
+STW ~_a ~_a
+INC _a
+IFL _a !end
+NXT copy
+
+IFE 0 !A101
+NXT boost
+turn:
+INC 0
+NXT evaluate
+
+boost:
+BST !F
+NXT boost
+
+drill:
+WKN !F
+SIP F
+NXT evaluate
+
+friend_ahead:
+IFE 0 !A100
+NXT turn
+score:
+ISC !F
+NXT score
+
+end:
+
+_a:
+0
+_turned:
+	  </listing>
+	</deck>
+	<grid width="9" height="5">
+		
+		<core/>
+		<core/>
+		<core listing="1" color="101040"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="1" color="101040"/>
+		<core/>
+		<core/>
+		
+		<core/>
+		<core/>
+		<core listing="1" color="101040"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="1" color="101040"/>
+		<core/>
+		<core/>
+
+		<core listing="2" color="104010"/>
+		<core/>
+		<core listing="1" color="101040"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="1" color="101040"/>
+		<core/>
+		<core/>
+
+		<core/>
+		<core/>
+		<core listing="1" color="101040"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="1" color="101040"/>
+		<core/>
+		<core/>
+
+		<core/>
+		<core/>
+		<core listing="1" color="101040"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="0" color="401020"/>
+		<core listing="1" color="101040"/>
+		<core/>
+		<core/>
+	</grid>
+</scenario>

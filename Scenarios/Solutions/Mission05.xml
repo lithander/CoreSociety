@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+  <budget>500000</budget>
+  <deck>
+    <listing color="401020">
+DSC !F
+NXT 0
+</listing>
+    <listing color="101040">main:
+SET _com !0
+SET _dir !0
+TGT _dir
+
+boost_loop:
+RDW _a _com
+IFN _a !ABCD
+NXT break
+
+BST !50
+
+break:
+INC _dir
+TGT _dir
+IFL _dir !4
+NXT boost_loop
+
+//targeting self!
+query_shield:
+QSE _a
+IFE _a !FF
+NXT main
+SET _b !FF
+SUB _b _a
+SET _com !ABCD
+ISE _b
+NXT query_shield
+
+_a:
+0
+_b:
+0
+_dir:
+0
+_com:
+0</listing>
+    <listing color="104010">init:
+ISE !1
+TGT _dir
+SET _com !F0F0
+
+copy_loop:
+QSE _a
+IFZ _a
+NXT copy
+return_copy:
+INC _dir
+MOD _dir !4
+TGT _dir
+IFS _dir
+NXT copy_loop
+
+interact_loop:
+//read com
+RDW _a _com
+//friend needs help?
+IFG _a !F0F0
+NXT support
+//not a friend?
+IFL _a !F0F0
+NXT attack
+INC _dir
+TGT _dir
+IFL _dir !4
+NXT interact_loop
+
+SET _com !F0F0
+work:
+ISC !5F
+NXT work
+
+support:
+DEC _a
+SET _com _a
+BST !30
+NXT interact_loop
+
+attack:
+SET _com !F0F2
+inner_attack:
+WKN !F
+QSE _a
+IFZ _a
+NXT copy
+NXT attack
+
+copy:
+SET _com !F0F1
+SIP end
+SET _a !end
+copy_word:
+DEC _a
+STW ~_a ~_a
+IFS _a
+NXT copy_word
+STW _dir _dir
+SIP 0
+NXT return_copy
+
+end:
+
+[40]
+_com:
+0
+_a:
+0
+_dir:
+0</listing>
+  </deck>
+  <grid width="9" height="9">
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="2" color="104010" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+  </grid>
+</scenario>

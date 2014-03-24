@@ -1,0 +1,58 @@
+<scenario>
+  <budget>50000</budget>
+	<deck>
+	  <listing>
+	  </listing>
+	</deck>
+	<grid width="7" height="7">
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+		<core listing="0"/>
+	</grid>
+</scenario>
