@@ -71,7 +71,7 @@ namespace CoreSociety
                     if (instr.HasParam)
                         location++;
                 }
-                catch (Exception ex) { };
+                catch { };
             }
         }
 

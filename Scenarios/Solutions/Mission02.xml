@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <scenario>
   <budget>50000</budget>
+  <mission>Write a program that copies itself into neighbouring cores and then generates as much score as possible. 20k or higher is possible! </mission>
   <deck>
     <listing color="000000">[1]
 0

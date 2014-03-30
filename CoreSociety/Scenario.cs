@@ -16,6 +16,16 @@ namespace CoreSociety
             _xml = xdoc;
         }
 
+        public string MissionStatement
+        {
+            get 
+            { 
+                
+                XElement ms = _xml.Descendants("mission").FirstOrDefault();
+                return ms != null ? ms.Value : "No Mission Statement provided!";  
+            }
+        }
+
         public int Width
         {
             get { return _xml.Descendants("grid").Attributes("width").Select(attr => int.Parse(attr.Value)).FirstOrDefault(); }
