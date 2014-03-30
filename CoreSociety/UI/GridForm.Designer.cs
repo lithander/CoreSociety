@@ -35,6 +35,7 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnStartPause = new System.Windows.Forms.ToolStripButton();
             this.btnStop = new System.Windows.Forms.ToolStripButton();
+            this.btnMission = new System.Windows.Forms.ToolStripButton();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtEnergy = new System.Windows.Forms.Label();
@@ -76,7 +77,8 @@
             this.btnLoad,
             this.btnSave,
             this.btnStartPause,
-            this.btnStop});
+            this.btnStop,
+            this.btnMission});
             this.mainToolStrip.Location = new System.Drawing.Point(0, 0);
             this.mainToolStrip.Name = "mainToolStrip";
             this.mainToolStrip.Size = new System.Drawing.Size(695, 25);
@@ -125,6 +127,16 @@
             this.btnStop.Text = "Stop";
             this.btnStop.ToolTipText = "Stop";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnMission
+            // 
+            this.btnMission.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnMission.Image = global::CoreSociety.Properties.Resources.HelpIcon;
+            this.btnMission.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnMission.Name = "btnMission";
+            this.btnMission.Size = new System.Drawing.Size(23, 22);
+            this.btnMission.Text = "Mission";
+            this.btnMission.Click += new System.EventHandler(this.btnMission_Click);
             // 
             // label5
             // 
@@ -359,10 +371,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.SlateBlue;
             this.panel5.Controls.Add(this.gridView);
-            this.panel5.Location = new System.Drawing.Point(11, 28);
+            this.panel5.Location = new System.Drawing.Point(11, 39);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(3);
-            this.panel5.Size = new System.Drawing.Size(672, 562);
+            this.panel5.Size = new System.Drawing.Size(672, 551);
             this.panel5.TabIndex = 18;
             // 
             // gridView
@@ -377,7 +389,7 @@
             this.gridView.Name = "gridView";
             this.gridView.OffsetX = 0;
             this.gridView.OffsetY = 0;
-            this.gridView.Size = new System.Drawing.Size(660, 550);
+            this.gridView.Size = new System.Drawing.Size(660, 539);
             this.gridView.TabIndex = 17;
             this.gridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gridView_MouseClick);
             this.gridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gridView_MouseDown);
@@ -462,5 +474,6 @@
         private System.Windows.Forms.Panel panel5;
         private DeckView deckView;
         private System.Windows.Forms.ToolStripMenuItem deckToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnMission;
     }
 }

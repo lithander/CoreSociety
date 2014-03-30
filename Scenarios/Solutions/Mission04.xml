@@ -1,5 +1,6 @@
 ﻿<scenario>
   <budget>100000</budget>
+    <mission>You may only edit the green listing. To generate a highscore you need to overcome the blue shielded cores and overwrite the red cores that are programmed to decrease score. 25k or higher is possible! </mission>
 	<deck>
 	  <listing color="401020">
 DSC !F

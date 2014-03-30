@@ -27,6 +27,10 @@ namespace CoreSociety.UI
         private SaveFileDialog _saveFileDlg = new SaveFileDialog();
         private OpenFileDialog _openFileDlg = new OpenFileDialog();
 
+        List<AssemblyForm> _assembyForms = new List<AssemblyForm>();
+        private bool _isScrolling = false;
+        private Point _scrollPos = new Point();
+
         public GridForm()
         {
             InitializeComponent();
@@ -42,7 +46,9 @@ namespace CoreSociety.UI
         {
             if (_openFileDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _scenario = Scenario.Load(_openFileDlg.FileName);
+                string path = _openFileDlg.FileName;
+                this.Text = "Core Grid - " + Path.GetFileNameWithoutExtension(path);
+                _scenario = Scenario.Load(path);
                 LoadScenario(_scenario, true);
                 _loaded = true;
             }
@@ -56,6 +62,28 @@ namespace CoreSociety.UI
                 _scenario.Save(_saveFileDlg.FileName);
             }
         }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            _started = false;
+            _playing = false;
+            LoadScenario(_scenario, false);
+            UpdateButtonStates();
+        }
+
+        private void btnStartPause_Click(object sender, EventArgs e)
+        {
+            _started = true;
+            _playing = !_playing;
+            //_scenario = Scenario.Create(_grid, _ga.Energy, false);
+            UpdateButtonStates();
+        }
+
+        private void btnMission_Click(object sender, EventArgs e)
+        {
+            if(_scenario != null)
+                MessageBox.Show(_scenario.MissionStatement, "Mission");
+        }  
 
         private void LoadScenario(Scenario scenario, bool loadListings)
         {
@@ -129,33 +157,15 @@ namespace CoreSociety.UI
             UpdateView();
         }
 
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            _started = false;
-            _playing = false;
-            LoadScenario(_scenario, false);
-            UpdateButtonStates();
-        }
-
-        private void btnStartPause_Click(object sender, EventArgs e)
-        {
-            _started = true;
-            _playing = !_playing;
-            //_scenario = Scenario.Create(_grid, _ga.Energy, false);
-            UpdateButtonStates();
-        }
-
         private void UpdateButtonStates()
         {
             btnLoad.Enabled = !_started;
             btnSave.Enabled = _loaded && !_started;
             btnStartPause.Enabled = _loaded;
+            btnMission.Enabled = _loaded;
             btnStartPause.Image = _playing ? (Image)Resources.PauseIcon : (Image)Resources.PlayIcon;
             btnStop.Enabled = _started;
         }
-
-        private bool _isScrolling = false;
-        private Point _scrollPos = new Point();
 
         private void gridView_MouseMove(object sender, MouseEventArgs e)
         {
@@ -304,7 +314,6 @@ namespace CoreSociety.UI
             form.FormClosing -= OnAssemblyClosing;
             _assembyForms.Remove(form as AssemblyForm);
         }
-
-        List<AssemblyForm> _assembyForms = new List<AssemblyForm>();     
+   
     }
 }

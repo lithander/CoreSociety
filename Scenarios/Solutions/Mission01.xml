@@ -1,5 +1,6 @@
 <scenario>
-  <budget>50000</budget>
+	<budget>50000</budget>
+	<mission>Edit the Decks only listing to convert the Grid Power into as much Score as possible!</mission>
 	<deck>
 	  <listing>
 	  </listing>
