@@ -8,7 +8,7 @@ Each core has 256 words of memory and an intruction pointer pointing at a specif
 
 There are no free instructions and one core will always have execution focus. So even a grid only consisting of uninitialized cores will leak energy.
 
-The simulator ships with a handful of missions. The task is usually to beat a certain score threshold by defining the initial memory layout of a subset of the grid's cores. As soon as the simulation start's there's no way to interact with the outcome so you have to come up with a smart strategy, an efficient implementation and that usually means doing lot's of iterations.
+The simulator ships with a handful of missions. The task is usually to beat a certain score threshold by defining the initial memory layout of a subset of the grid's cores. As soon as the simulation starts there's no way to interact with the outcome so you have to come up with a smart strategy, an efficient implementation and that usually means doing lot's of iterations.
 
 All but the most basic missions will require your program to write to the memory of adjacent cores to change their program and thus make them work towards your goal. Usually the grid is initialized with "enemy" cores who will try to prevent you from achieving a high score by spending all their energy to decrease the score. So the first part of the sim is usually spend on getting board control, then you can spend the remaining total energy budget on getting the score up.
 
@@ -18,7 +18,7 @@ Download the repository and just start the prebuild executable (CoreSociety.exe)
 
 Click on the top left icon to open a scenario. A click on the 'Play' Icon starts the simulation.
 
-You can click on a listing in the 'Deck' to open a second window that allows you to modify the listing which defines the core's memory contents. That way you can change the initial state of the simulation to attain a favorable outcome.
+You can click on a listing in the 'Deck' to open a second window that allows you to modify the listing which defines a core's memory contents. That way you can change the initial state of the simulation to attain a favorable outcome.
 
 To learn more about the instruction set and how to program a core have a look at the Documenation.pdf.
 
