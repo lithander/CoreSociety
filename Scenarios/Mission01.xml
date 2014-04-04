@@ -3,8 +3,7 @@
   <mission>Click on the first entry in the Deck! Write a program to create as much score as possible. Close to 50k is possible!</mission>
   <budget>50000</budget>
   <deck>
-    <listing color="000000">ISC !FE
-NXT 0</listing>
+    <listing color="000000">//Write code here!</listing>
   </deck>
   <grid width="7" height="7">
     <core listing="0" color="000000" />

@@ -105,10 +105,11 @@ namespace CoreSociety
          * STATIC
          */
 
-        public static Scenario Create(Grid grid, int budget, IEnumerable<Listing> listings, bool writeCoreState)
+        public static Scenario Create(Grid grid, int budget, IEnumerable<Listing> listings, string mission, bool writeCoreState)
         {
             XDocument xdoc = new XDocument(
                 new XElement("scenario",
+                    new XElement("mission", new XText(mission)),
                     new XElement("budget", new XText(budget.ToString())),
                     new XElement("deck"),
                     new XElement("grid", new XAttribute("width", grid.Width.ToString()), new XAttribute("height", grid.Height.ToString()))

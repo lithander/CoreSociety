@@ -306,7 +306,7 @@
             this.batchSize.TabIndex = 18;
             this.batchSize.TickStyle = System.Windows.Forms.TickStyle.None;
             this.batchSize.Value = 1;
-            this.batchSize.Scroll += new System.EventHandler(this.batchSize_Scroll);
+            this.batchSize.ValueChanged += new System.EventHandler(this.batchSize_ValueChanged);
             // 
             // autoRunSpeed
             // 

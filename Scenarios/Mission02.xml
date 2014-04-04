@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+  <mission>Write a program that copies itself into neighbouring cores and then generates as much score as possible. 20k or higher is possible! </mission>
+  <budget>50000</budget>
+  <deck>
+    <listing color="000000">//Write your code here!</listing>
+  </deck>
+  <grid width="7" height="7">
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="0" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+  </grid>
+</scenario>

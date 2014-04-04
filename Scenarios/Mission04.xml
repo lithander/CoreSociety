@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+  <mission>You may only edit the green listing. To generate a highscore you need to overcome the blue shielded cores and overwrite the red cores that are programmed to decrease score. 25k or higher is possible! </mission>
+  <budget>100000</budget>
+  <deck>
+    <listing color="401020">
+DSC !F
+NXT 0
+</listing>
+    <listing color="101040">
+QSE _a
+IFG _a !F0
+NXT decrease_score
+ISE !F
+NXT 0
+
+decrease_score:
+DSC !F
+NXT 0
+
+_a:
+0
+</listing>
+    <listing color="104010">//Write your code here!
+</listing>
+  </deck>
+  <grid width="9" height="5">
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="2" color="104010" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="0" color="401020" />
+    <core listing="1" color="101040" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+  </grid>
+</scenario>

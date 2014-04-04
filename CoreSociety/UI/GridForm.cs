@@ -34,6 +34,7 @@ namespace CoreSociety.UI
         public GridForm()
         {
             InitializeComponent();
+            batchSize.Value = 8;
             UpdateButtonStates();
 
             _ga = new GridAuthority();
@@ -50,6 +51,7 @@ namespace CoreSociety.UI
                 this.Text = "Core Grid - " + Path.GetFileNameWithoutExtension(path);
                 _scenario = Scenario.Load(path);
                 LoadScenario(_scenario, true);
+                DisplayMissionStatement();
                 _loaded = true;
             }
         }
@@ -58,7 +60,7 @@ namespace CoreSociety.UI
         {
             if (_saveFileDlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                _scenario = Scenario.Create(_grid, _ga.Energy, _deck, false);
+                _scenario = Scenario.Create(_grid, _ga.Energy, _deck, _scenario.MissionStatement, false);
                 _scenario.Save(_saveFileDlg.FileName);
             }
         }
@@ -75,14 +77,12 @@ namespace CoreSociety.UI
         {
             _started = true;
             _playing = !_playing;
-            //_scenario = Scenario.Create(_grid, _ga.Energy, false);
             UpdateButtonStates();
         }
 
         private void btnMission_Click(object sender, EventArgs e)
         {
-            if(_scenario != null)
-                MessageBox.Show(_scenario.MissionStatement, "Mission");
+            DisplayMissionStatement();
         }  
 
         private void LoadScenario(Scenario scenario, bool loadListings)
@@ -94,7 +94,7 @@ namespace CoreSociety.UI
             {
                 _deck = _scenario.Deck.ToList();
                 deckView.Data = _deck;
-                UpdateContextMenue();
+                UpdateContextMenu();
             }
             foreach (Grid.Entry entry in _grid.ListOfEntries.Where(entry => entry.ListingID >= 0 && entry.ListingID < _deck.Count))
             {
@@ -106,7 +106,13 @@ namespace CoreSociety.UI
             UpdateView();
         }
 
-        private void UpdateContextMenue()
+        private void DisplayMissionStatement()
+        {
+            if (_scenario != null)
+                MessageBox.Show(_scenario.MissionStatement, "Mission", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void UpdateContextMenu()
         {
             ToolStripMenuItem deckEntry = gridContextMenu.Items["deckToolStripMenuItem"] as ToolStripMenuItem;
             deckEntry.DropDownItems.Clear();
@@ -139,7 +145,7 @@ namespace CoreSociety.UI
             Draw(core);
 
             //update scenario
-            _scenario = Scenario.Create(_grid, _ga.Energy, _deck, true);
+            _scenario = Scenario.Create(_grid, _ga.Energy, _deck, _scenario.MissionStatement, true);
         }
 
         private void UpdateView()
@@ -258,7 +264,8 @@ namespace CoreSociety.UI
             runClock.Interval = 1000 / speedVal;
         }
 
-        private void batchSize_Scroll(object sender, EventArgs e)
+
+        private void batchSize_ValueChanged(object sender, EventArgs e)
         {
             int batchVal = batchSize.Value;
             _energyPerTick = (batchVal > 0) ? (int)Math.Pow(2, (batchSize.Value - 1)) : 0;
@@ -313,7 +320,6 @@ namespace CoreSociety.UI
             AssemblyForm form = sender as AssemblyForm;
             form.FormClosing -= OnAssemblyClosing;
             _assembyForms.Remove(form as AssemblyForm);
-        }
-   
+        }   
     }
 }

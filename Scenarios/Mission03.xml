@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+  <mission>Write a program that copies itself to all blue cores. Then generate as much score as possible. 15k or more is possible! </mission>
+  <budget>100000</budget>
+  <deck>
+    <listing color="103020">//Write your code here!
+</listing>
+    <listing color="401020">ISE !F
+NXT 0
+</listing>
+  </deck>
+  <grid width="9" height="9">
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="0" color="103020" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+    <core listing="1" color="401020" />
+  </grid>
+</scenario>
