@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<scenario>
+  <mission>In this demonstration the green core is calculating primes, supported by the grey cores who provide it with energy! The blue cores try to prevent the red core from taking over the board by spending their energy to keep a shield up and supporting neighbours.</mission>
+  <budget>50000</budget>
+  <deck>
+    <listing color="004000" idrange="00-16">//next candidate
+next:
+INC _candidate
+SET _sqrt _candidate
+SQT _sqrt
+//init divisor
+SET _divisor !1
+factorize:
+INC _divisor
+//test for prime
+SET _temp _candidate
+MOD _temp _divisor
+//if divisor divides goto start
+IFZ _temp
+NXT next
+//if divisor &lt; sqrt(pc) divisor++
+IFL _divisor _sqrt
+NXT factorize
+//we have a new prime
+//copy prime to next free slot
+SET ~_out _candidate
+INC _out
+//if slots remaining goto start
+IFL _out !00FF
+NXT next
+JMP !0
+
+[30]
+_candidate:
+1
+_sqrt:
+0
+_divisor:
+0
+_temp:
+0
+_out:
+50
+</listing>
+    <listing color="101040" idrange="00-13">main:
+SET _com !0
+SET _dir !0
+TGT _dir
+
+boost_loop:
+RDW _a _com
+IFN _a !ABCD
+NXT break
+
+BST !50
+
+break:
+INC _dir
+TGT _dir
+IFL _dir !4
+NXT boost_loop
+
+//targeting self!
+query_shield:
+QSE _a
+IFE _a !FF
+NXT main
+SET _b !FF
+SUB _b _a
+SET _com !ABCD
+ISE _b
+NXT query_shield
+
+_a:
+0
+_b:
+0
+_dir:
+0
+_com:
+0
+</listing>
+    <listing color="401020" idrange="01-20">
+evaluate:
+TGT !0
+QSE _a
+IFS _a
+NXT drill
+
+RDW _a 0
+IFE _a !A101
+NXT friend_ahead
+
+prepare_copy:
+SIP 85
+SET _a !0
+copy:
+STW ~_a ~_a
+INC _a
+IFL _a !end
+NXT copy
+
+IFE 0 !A101
+NXT boost
+turn:
+INC 0
+NXT evaluate
+
+boost:
+BST !F
+NXT boost
+
+drill:
+WKN !F
+SIP F
+NXT evaluate
+
+friend_ahead:
+IFE 0 !A100
+NXT turn
+score:
+ISC !F
+NXT score
+
+end:
+
+_a:
+0
+_turned:
+
+</listing>
+    <listing color="353025" idrange="00-03">
+TGT !0
+BST !F
+JMP !FF
+</listing>
+  </deck>
+  <grid width="6" height="5">
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="3" color="353025" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="3" color="353025" />
+    <core listing="2" color="401020" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="0" color="004000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="3" color="353025" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="-1" color="000000" />
+    <core listing="1" color="101040" />
+    <core listing="1" color="101040" />
+    <core listing="3" color="353025" />
+  </grid>
+</scenario>

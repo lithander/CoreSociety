@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <scenario>
-  <budget>100000</budget>
   <mission>Write a program that copies itself to all blue cores. Then generate as much score as possible. 15k or more is possible! </mission>
+  <budget>100000</budget>
   <deck>
-    <listing color="103020">ISE !1
+    <listing color="103020" idrange="00-16">ISE !1
 eval_target:
 TGT _tgt
 QSE _a

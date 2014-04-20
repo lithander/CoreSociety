@@ -241,6 +241,12 @@ namespace CoreSociety.UI
 
         private void Draw(Core core)
         {
+            foreach(Listing listing in _deck.Where(l => l.Identity.IsValid))
+                if(listing.MatchIdentity(core))
+                {
+                    Grid.Entry coreEntry = _grid.ListOfEntries.Where(entry => entry.Core == core).FirstOrDefault();
+                    coreEntry.Color = listing.Color;
+                }
             gridView.Render(core, _ga.GetStatusFlags(core));
         }
 

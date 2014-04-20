@@ -55,8 +55,7 @@ namespace CoreSociety
             {
                 return CreateGrid();
             }
-        }
-               
+        }               
 
         public void Save(string filePath)
         {
@@ -80,6 +79,13 @@ namespace CoreSociety
                 listing.Parse(lines);
                 if (node.Attribute("color") != null)
                     listing.Color = ColorFromHex(node.Attribute("color").Value);
+
+                if (node.Attribute("idrange") != null)
+                {
+                    string[] range = node.Attribute("idrange").Value.Split('-');
+                    listing.Identity = new Listing.IdRange(ByteFromHex(range[0]), ByteFromHex(range[1]));
+                }
+
                 yield return listing;
             }
         }
@@ -121,6 +127,11 @@ namespace CoreSociety
                 XElement listingNode = new XElement("listing");
                 listingNode.Value = listing.Lines.Aggregate((agg, token) => agg + "\n" + token);
                 listingNode.SetAttributeValue("color", ColorToHex(listing.Color));
+                if(listing.Identity.IsValid)
+                {
+                    string range = ByteToHex(listing.Identity.Min)+"-"+ByteToHex(listing.Identity.Max);
+                    listingNode.SetAttributeValue("idrange", range);
+                }
                 deckNode.Add(listingNode);
             }
 
@@ -135,6 +146,16 @@ namespace CoreSociety
                 gridNode.Add(coreNode);
             }
             return new Scenario(xdoc);
+        }
+
+        public static byte ByteFromHex(string hex)
+        {
+            return byte.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+        }
+
+        public static string ByteToHex(byte value)
+        {
+            return value.ToString("X2");
         }
 
         public static Color ColorFromHex(string hexNotation)

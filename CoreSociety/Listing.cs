@@ -8,7 +8,25 @@ namespace CoreSociety
 {
     public class Listing
     {
+        public struct IdRange
+        {
+            public IdRange(byte min, byte max)
+            {
+                Min = min;
+                Max = max;
+            }
+            public byte Min;
+            public byte Max;
+
+            public bool IsValid
+            {
+                get { return Max > Min && Min >= 0; }
+            }
+        }
+
+
         public Color Color;
+        public IdRange Identity;
         private Dictionary<string, byte> _labels = new Dictionary<string, byte>();
         private Dictionary<byte, Instruction> _memMap = new Dictionary<byte, Instruction>();
         private List<string> _lines = new List<string>();
@@ -186,6 +204,20 @@ namespace CoreSociety
                 if (instr.HasParam)
                     core.Memory[location++] = 0;
             }
+        }
+
+        public bool MatchIdentity(Core core)
+        {
+            for (byte location = Identity.Min; location < Identity.Max; location++)
+            {
+                if (_memMap.ContainsKey(location))
+                {
+                    Instruction instr = _memMap[location];
+                    if (core.Memory[location] != instr.InstructionWord)
+                        return false;
+                }
+            }
+            return true;
         }
     }
 }
